@@ -17,7 +17,7 @@ ifeq ($(KERNELRELEASE),)
     PWD := $(shell pwd)
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+	$(MAKE) ARCH=arm64 -C $(KERNELDIR) M=$(PWD) modules
 
 modules_install:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules_install
@@ -32,5 +32,3 @@ else
     obj-m := hello.o hellop.o seq.o jiq.o sleepy.o complete.o \
              silly.o faulty.o kdatasize.o kdataalign.o jit.o
 endif
-
-
