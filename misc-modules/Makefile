@@ -17,7 +17,7 @@ ifeq ($(KERNELRELEASE),)
     PWD := $(shell pwd)
 
 modules:
-	$(MAKE) ARCH=arm64 -C $(KERNELDIR) M=$(PWD) modules
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 
 modules_install:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules_install
